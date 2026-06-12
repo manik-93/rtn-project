@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
+
+  --color-ocean-50: #f0f9ff;
+  --color-ocean-100: #e0f2fe;
+  --color-ocean-200: #bae6fd;
+  --color-ocean-300: #7dd3fc;
+  --color-ocean-400: #38bdf8;
+  --color-ocean-500: #0ea5e9;
+  --color-ocean-600: #0284c7;
+  --color-ocean-700: #0369a1;
+  --color-ocean-800: #075985;
+  --color-ocean-900: #0c4a6e;
+
+  --color-sand-50: #fffbeb;
+  --color-sand-100: #fef3c7;
+  --color-sand-200: #fde68a;
+  --color-sand-300: #fcd34d;
+
+  --color-coral-400: #fb923c;
+  --color-coral-500: #f97316;
+  --color-coral-600: #ea580c;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-sand-50 text-slate-800 antialiased dark:bg-slate-950 dark:text-slate-100;
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .container-app {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-ocean-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition hover:-translate-y-0.5 hover:bg-ocean-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-ocean-400 focus:ring-offset-2 dark:focus:ring-offset-slate-950;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-ocean-200 bg-white px-5 py-2.5 text-sm font-semibold text-ocean-700 transition hover:-translate-y-0.5 hover:border-ocean-300 hover:bg-ocean-50 dark:border-ocean-700 dark:bg-slate-900 dark:text-ocean-200 dark:hover:bg-slate-800;
+  }
+
+  .card-surface {
+    @apply rounded-2xl border border-slate-200/80 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900;
+  }
+
+  .section-title {
+    @apply font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl dark:text-white;
+  }
+
+  .section-subtitle {
+    @apply mt-3 max-w-2xl text-base text-slate-600 dark:text-slate-400;
+  }
+}
+
+.leaflet-container {
+  z-index: 0;
+  font-family: var(--font-sans);
+}
+
+.leaflet-popup-content-wrapper {
+  @apply rounded-xl shadow-lg;
+}
